@@ -211,11 +211,9 @@ app.use("/uploads", express.static(UPLOADS_DIR));
 
 // Start
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  const publicUrl = process.env.PUBLIC_URL || `https://your-app.up.railway.app`;
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Access the app at ${publicUrl}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
 
 
 
