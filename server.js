@@ -212,13 +212,11 @@ app.use("/uploads", express.static(UPLOADS_DIR));
 // Start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
+  const publicUrl = process.env.PUBLIC_URL || `https://your-app.up.railway.app`;
   console.log(`Server running on port ${PORT}`);
-  // Railway URL publik akan otomatis route ke port ini
-  if (process.env.RAILWAY_STATIC_URL) {
-    console.log(`Public URL: https://${process.env.RAILWAY_STATIC_URL}`);
-  } else {
-    console.log(`Open http://localhost:${PORT} locally`);
-  }
+  console.log(`Access the app at ${publicUrl}`);
 });
+
+
 
 
