@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QRIS - Seraphin Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{background:#0b0b0b;color:#fff;font-family:Inter,Arial,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .box{background:#0f1113;padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);display:flex;flex-direction:column;align-items:center}
+    .qr{width:220px;height:220px;border-radius:12px;background:linear-gradient(180deg,#0b74ff20,#3aa0ff10);display:flex;align-items:center;justify-content:center;color:#cbd5df}
+    .timer{margin-top:12px;font-weight:700;font-size:20px}
+    button{margin-top:12px;padding:8px 12px;border-radius:8px;border:none;background:#0b74ff;color:#fff;cursor:pointer}
+    .msg{margin-top:8px;color:#bfc9d3;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div>Scan QRIS berikut untuk membayar</div>
+    <div class="qr" id="qrBox">
+      <img id="qrisImg" src="/uploads/qris.png" alt="QRIS" style="max-width:100%;max-height:100%;border-radius:8px;display:block;" onerror="this.style.display='none'">
+      <div id="qrPlaceholder" style="display:none">QRIS</div>
+    </div>
+    <div class="timer" id="timer">03:00</div>
+    <div class="msg">Waktu berlaku: 3 menit</div>
+    <button id="closeBtn" onclick="window.close()">Tutup</button>
+  </div>
+
+<script>
+// Timer (falls back to local timer if parent doesn't post updates)
+let remaining = 180;
+let interval = null;
+function updateDisplay(){
+  const mm = String(Math.floor(remaining/60)).padStart(2,'0');
+  const ss = String(remaining%60).padStart(2,'0');
+  document.getElementById('timer').innerText = remaining>0? mm+':'+ss : '00:00';
+}
+function startLocalTimer(){
+  if (interval) return;
+  interval = setInterval(()=>{
+    remaining -= 1;
+    if (remaining <= 0){ remaining = 0; clearInterval(interval); interval=null; }
+    updateDisplay();
+  },1000);
+}
+
+// Listen for messages from opener (main page)
+window.addEventListener('message',(ev)=>{
+  try {
+    const d = ev.data;
+    if (!d) return;
+    if (d.type === 'timer'){
+      remaining = Number(d.remaining) || 0;
+      updateDisplay();
+      // keep local ticking so timer moves if no more messages
+      if (!interval) startLocalTimer();
+    } else if (d.type === 'expired'){
+      remaining = 0; updateDisplay();
+      // show expired notice
+      const n = document.createElement('div'); n.style.color='orange'; n.style.marginTop='8px'; n.innerText='Waktu habis'; document.querySelector('.box').appendChild(n);
+    }
+  } catch(e){}
+});
+
+// start local timer immediately as fallback so user sees countdown even without messages
+updateDisplay(); startLocalTimer();
+</script>
+</body>
+</html>

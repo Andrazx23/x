@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seraphin Shop - Beli Key</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: rgb(20,20,20);
+      --panel: #0f0f12;
+      --muted: #bfc9d3;
+      --accent: linear-gradient(135deg,#3aa0ff 0%,#0b74ff 100%);
+      --glass: rgba(255,255,255,0.03);
+    }
+    html,body{height:100%;}
+    body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:var(--bg); color:#eaf0f8; margin:0; padding:36px 20px; }
+    .container { max-width:1100px; margin:0 auto; }
+    .header { text-align:center; margin-bottom:26px; }
+    .brand { display:inline-flex; align-items:center; gap:12px; }
+    .brand .logo { width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center; background:var(--panel); border-radius:10px; box-shadow:0 6px 20px rgba(3,7,18,0.6); }
+    .brand h1 { margin:0; font-size:20px; letter-spacing:0.4px; }
+    .tagline { color:var(--muted); margin-top:6px; font-size:13px }
+
+    .grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap:18px; align-items:start; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px; box-shadow:0 8px 30px rgba(2,6,12,0.7); }
+    .card .thumb { height:120px; border-radius:8px; background:linear-gradient(90deg,#0b74ff20,#3aa0ff10); display:flex; align-items:center; justify-content:center; margin-bottom:12px }
+    .card h3 { margin:0 0 8px 0; color:#fff; font-size:16px; }
+    .small { color:var(--muted); font-size:13px; }
+    .price { font-weight:700; font-size:15px; margin-top:8px }
+    .buy-btn { margin-top:12px; background:var(--accent); color:#fff; padding:10px; border:none; border-radius:10px; width:100%; cursor:pointer; box-shadow: 0 6px 18px rgba(11,116,255,0.18); font-weight:600 }
+    .buy-btn:disabled { opacity:0.6; cursor:not-allowed; }
+
+    .modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)); padding:24px }
+    .modal.show { display:flex }
+    .modal-inner { background: linear-gradient(180deg,#0f1113,#0b0c0d); color:#eaf0f8; padding:20px; border-radius:12px; width:420px; box-shadow:0 12px 40px rgba(0,0,0,0.8); }
+    input,file { width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #232426; background:#0b0b0b; color:#eaf0f8 }
+    .note { background:#11263a; color:#cfe9ff; padding:10px; border-radius:8px; margin-top:10px; }
+
+    /* responsive tweaks */
+    @media (max-width:520px){ body{padding:18px} .modal-inner{width:100%} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <!-- simple key SVG -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 3.5a6 6 0 1 1-4.243 10.243L3 17v3h3l3-3 1.757 1.757A6 6 0 0 1 10.5 3.5z" fill="#ffd166"/>
+            <circle cx="9" cy="9" r="2" fill="#ffefc2"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Seraphin Shop</h1>
+          <div class="tagline">Lifetime license — instant delivery</div>
+        </div>
+      </div>
+      <p class="small">Shop tercepat dan teraman <b>Hanya di Seraphin Shop</b>.</p>
+    </div>
+
+    <div id="products" class="grid"></div>
+  </div>
+
+  <!-- Buy Modal -->
+  <div id="buyModal" class="modal">
+    <div class="modal-inner">
+      <h3 id="modalTitle">Beli</h3>
+      <div>
+        <label>Email</label>
+        <input id="buyerEmail" type="email" />
+        <label>Nama (opsional)</label>
+        <input id="buyerName" type="text" />
+        <label>Jumlah</label>
+        <input id="buyQty" type="number" value="1" min="1" />
+        <label>Upload bukti (screenshot DANA)</label>
+        <input id="buyProof" type="file" accept="image/*" />
+        <div style="margin-top:8px;">
+          <label style="font-weight:600;">Metode Pembayaran</label>
+          <div style="display:flex; gap:12px; margin-top:6px; align-items:center;">
+            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;"><input type="radio" name="paymentMethod" value="DANA" checked onchange="onPaymentChange(event)"> DANA</label>
+            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;"><input type="radio" name="paymentMethod" value="QRIS" onchange="onPaymentChange(event)"> QRIS</label>
+          </div>
+        </div>
+        <div id="danaNote" class="note" style="margin-top:10px">Transfer ke DANA: <b>085260047474</b></div>
+        <div id="qrisNote" class="note" style="margin-top:10px; display:none">
+          Scan QRIS berikut untuk membayar:<br>
+          <!-- placeholder QR code box -->
+          <div style="width:160px;height:160px;background:linear-gradient(180deg,#0b74ff20,#3aa0ff10); border-radius:8px; display:flex;align-items:center;justify-content:center;margin-top:8px;color:var(--muted);">QRIS</div>
+          <div style="margin-top:10px; display:flex; gap:12px; align-items:center;">
+            <div style="font-size:13px; color:var(--muted)">Sisa waktu pembayaran:</div>
+            <div id="qrisTimer" style="font-weight:700; color:#fff">03:00</div>
+          </div>
+          
+        </div>
+        <div style="margin-top:10px; display:flex; gap:10px;">
+          <button id="confirmBuy" class="buy-btn" onclick="confirmBuy()">Kirim Bukti & Buat Order</button>
+          <button style="margin-top:0; padding:10px; border-radius:10px; background:#161819; color:#cfd6dd; border:1px solid #222" onclick="closeModal()">Batal</button>
+        </div>
+        <div id="buyMsg" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+let currentProduct = null;
+
+async function loadProducts() {
+  const res = await fetch("/api/products");
+  const j = await res.json();
+  const container = document.getElementById("products");
+  container.innerHTML = "";
+  const rupiah = new Intl.NumberFormat('id-ID');
+  j.products.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "card";
+    // show product thumbnail with key icon and product name (use Seraphin Lifetime as primary name)
+    const productName = p.name && p.name.trim() ? p.name : 'Seraphin Lifetime';
+    div.innerHTML = `
+      <div class="thumb">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.5 3.5a6 6 0 1 1-4.243 10.243L3 17v3h3l3-3 1.757 1.757A6 6 0 0 1 10.5 3.5z" fill="#ffd166"/>
+          <circle cx="9" cy="9" r="2" fill="#ffefc2"/>
+        </svg>
+      </div>
+      <h3>${productName}</h3>
+  <div class="small">Harga: Rp${rupiah.format(p.price)}</div>
+      <div class="small">Stok: ${p.stock}</div>
+  <div class="price">Rp${rupiah.format(p.price)}</div>
+      <button class="buy-btn" ${p.stock<=0 ? "disabled" : ""} onclick="openBuy('${p.id}','${productName}')">Beli</button>`;
+    container.appendChild(div);
+  });
+}
+
+function openBuy(id, name) {
+  currentProduct = id;
+  document.getElementById("modalTitle").innerText = `Beli - ${name}`;
+  document.getElementById("buyModal").style.display = "flex";
+  document.getElementById("buyMsg").innerHTML = "";
+  // reset payment selection to DANA by default and stop any QRIS timer
+  const danaRadio = document.querySelector('input[name="paymentMethod"][value="DANA"]');
+  if (danaRadio) { danaRadio.checked = true; }
+  onPaymentChange({ target: { value: 'DANA' } });
+  enableConfirm(true);
+}
+
+function closeModal() {
+  document.getElementById("buyModal").style.display = "none";
+  // stop QRIS timer when modal closed
+  stopQrisTimer();
+}
+
+function onPaymentChange(e) {
+  const v = e.target.value;
+  const dana = document.getElementById('danaNote');
+  const qris = document.getElementById('qrisNote');
+  if (v === 'QRIS') {
+    dana.style.display = 'none';
+    qris.style.display = 'block';
+    startQrisTimer();
+  } else {
+    dana.style.display = 'block';
+    qris.style.display = 'none';
+    stopQrisTimer();
+    closeQrisWindow();
+  }
+}
+
+// QRIS timer (3 minutes)
+let qrisInterval = null;
+let qrisRemaining = 0; // seconds
+
+function enableConfirm(enabled) {
+  const btn = document.getElementById('confirmBuy');
+  if (!btn) return;
+  btn.disabled = !enabled;
+}
+
+function onQrisExpired() {
+  const el = document.getElementById('buyMsg');
+  if (el) el.innerHTML = '<div style="color:orange">Waktu QRIS habis. Pilih ulang QRIS atau gunakan DANA.</div>';
+  enableConfirm(false);
+  try { if (qrisChild && !qrisChild.closed) qrisChild.postMessage({ type: 'expired' }, '*'); } catch(e){}
+}
+
+function updateQrisTimerDisplay() {
+  const el = document.getElementById('qrisTimer');
+  if (!el) return;
+  const mm = String(Math.floor(qrisRemaining/60)).padStart(2,'0');
+  const ss = String(qrisRemaining%60).padStart(2,'0');
+  el.innerText = qrisRemaining>0 ? mm + ':' + ss : '00:00';
+  try { if (qrisChild && !qrisChild.closed) qrisChild.postMessage({ type: 'timer', remaining: qrisRemaining }, '*'); } catch(e){}
+}
+
+function startQrisTimer() {
+  // reset any existing timer
+  stopQrisTimer();
+  qrisRemaining = 180; // 3 minutes
+  updateQrisTimerDisplay();
+  enableConfirm(true);
+  qrisInterval = setInterval(() => {
+    qrisRemaining -= 1;
+    if (qrisRemaining <= 0) {
+      clearInterval(qrisInterval);
+      qrisInterval = null;
+      onQrisExpired();
+      updateQrisTimerDisplay();
+    } else {
+      updateQrisTimerDisplay();
+    }
+  }, 1000);
+}
+
+function stopQrisTimer() {
+  if (qrisInterval) {
+    clearInterval(qrisInterval);
+    qrisInterval = null;
+  }
+  // reset display to 03:00 when stopped
+  qrisRemaining = 180;
+  updateQrisTimerDisplay();
+}
+
+
+
+async function confirmBuy() {
+  const email = document.getElementById("buyerEmail").value.trim();
+  const name = document.getElementById("buyerName").value.trim();
+  const qty = Number(document.getElementById("buyQty").value || 1);
+  const proofFile = document.getElementById("buyProof").files[0];
+  const msg = document.getElementById("buyMsg");
+  msg.innerHTML = "";
+
+  if (!currentProduct || !email || !proofFile) {
+    msg.innerHTML = '<div style="color:red">Isi email dan upload bukti.</div>';
+    return;
+  }
+
+  const form = new FormData();
+  form.append("productId", currentProduct);
+  form.append("qty", qty);
+  form.append("email", email);
+  form.append("name", name);
+  // include chosen payment method
+  const methodEl = document.querySelector('input[name="paymentMethod"]:checked');
+  const paymentMethod = methodEl ? methodEl.value : 'DANA';
+  form.append('paymentMethod', paymentMethod);
+  form.append("proof", proofFile);
+
+  try {
+    const res = await fetch("/api/buy", { method: "POST", body: form });
+    const j = await res.json();
+    if (j.ok) {
+      msg.innerHTML = '<div style="color:green">Order dibuat. Simpan Order ID: <b>' + j.orderId + '</b></div>';
+      setTimeout(() => { closeModal(); loadProducts(); }, 1200);
+    } else {
+      msg.innerHTML = '<div style="color:red">Error: ' + (j.message || 'Gagal') + '</div>';
+    }
+  } catch (err) {
+    console.error(err);
+    msg.innerHTML = '<div style="color:red">Gagal koneksi ke server.</div>';
+  }
+}
+
+// init
+loadProducts();
+</script>
+</body>
+</html>

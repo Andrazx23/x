@@ -1,0 +1,181 @@
+{
+  "pending": [],
+  "delivered": {
+    "ORD-1760860231864-575": {
+      "orderId": "ORD-1760860231864-575",
+      "productId": "key_lifetime",
+      "qty": 1,
+      "name": "Andea",
+      "email": "nebarback811@gmail.com",
+      "total": 25,
+      "proofPath": "/uploads/1760860231858-2523.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T07:50:31.864Z",
+      "assigned": [
+        {
+          "key": "LIFE-CCCC-9001",
+          "productName": "Seraphin Lifetime"
+        }
+      ],
+      "deliveredAt": "2025-10-19T07:50:59.882Z"
+    },
+    "ORD-1760860200617-152": {
+      "orderId": "ORD-1760860200617-152",
+      "productId": "key_1day",
+      "qty": 1,
+      "name": "wd",
+      "email": "nebarback811@gmail.com",
+      "total": 5,
+      "proofPath": "/uploads/1760860200604-4158.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T07:50:00.617Z",
+      "assigned": [
+        {
+          "key": "1D-AAAA-0001",
+          "productName": "1 Day"
+        }
+      ],
+      "deliveredAt": "2025-10-19T07:52:23.401Z"
+    },
+    "ORD-1760860383279-562": {
+      "orderId": "ORD-1760860383279-562",
+      "productId": "key_3day",
+      "qty": 1,
+      "name": "123",
+      "email": "nebarback811@gmail.com",
+      "total": 10,
+      "proofPath": "/uploads/1760860383269-1658.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T07:53:03.279Z",
+      "assigned": [
+        {
+          "key": "3D-BBBB-1001",
+          "productName": "3 Day"
+        }
+      ],
+      "deliveredAt": "2025-10-19T07:53:08.776Z"
+    },
+    "ORD-1760860511025-547": {
+      "orderId": "ORD-1760860511025-547",
+      "productId": "key_1day",
+      "qty": 1,
+      "name": "123",
+      "email": "nebarback811@gmail.com",
+      "total": 5,
+      "proofPath": "/uploads/1760860511017-862.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T07:55:11.026Z",
+      "assigned": [
+        {
+          "key": "1D-AAAA-0002",
+          "productName": "1 Day"
+        }
+      ],
+      "deliveredAt": "2025-10-19T07:55:16.540Z"
+    },
+    "ORD-1760860557906-374": {
+      "orderId": "ORD-1760860557906-374",
+      "productId": "key_3day",
+      "qty": 1,
+      "name": "123",
+      "email": "nebarback811@gmail.com",
+      "total": 10,
+      "proofPath": "/uploads/1760860557900-8568.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T07:55:57.907Z",
+      "assigned": [
+        {
+          "key": "3D-BBBB-1002",
+          "productName": "3 Day"
+        }
+      ],
+      "deliveredAt": "2025-10-19T07:56:02.055Z"
+    },
+    "ORD-1760860935937-967": {
+      "orderId": "ORD-1760860935937-967",
+      "productId": "key_1day",
+      "qty": 1,
+      "name": "123",
+      "email": "nebarback811@gmail.com",
+      "total": 5,
+      "proofPath": "/uploads/1760860935927-8441.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T08:02:15.938Z",
+      "assigned": [
+        {
+          "key": "1D-AAAA-0003",
+          "productName": "1 Day"
+        }
+      ],
+      "deliveredAt": "2025-10-19T08:02:25.139Z"
+    },
+    "ORD-1760861544244-600": {
+      "orderId": "ORD-1760861544244-600",
+      "productId": "key_lifetime",
+      "qty": 1,
+      "name": "Andra",
+      "email": "nebarback811@gmail.com",
+      "total": 25,
+      "proofPath": "/uploads/1760861544232-3739.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T08:12:24.245Z",
+      "assigned": [
+        {
+          "key": "LIFE-KEY001",
+          "productName": "Seraphin Lifetime"
+        }
+      ],
+      "deliveredAt": "2025-10-19T08:12:32.808Z"
+    },
+    "ORD-1760860232516-526": {
+      "orderId": "ORD-1760860232516-526",
+      "productId": "key_lifetime",
+      "qty": 1,
+      "name": "Andea",
+      "email": "nebarback811@gmail.com",
+      "total": 25,
+      "proofPath": "/uploads/1760860232513-1307.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T07:50:32.516Z",
+      "assigned": [
+        {
+          "key": "LIFE-KEY002",
+          "productName": "Seraphin Lifetime"
+        }
+      ],
+      "deliveredAt": "2025-10-19T08:24:43.826Z"
+    },
+    "ORD-1760862490456-667": {
+      "orderId": "ORD-1760862490456-667",
+      "productId": "key_lifetime",
+      "qty": 1,
+      "name": "Andra",
+      "email": "nebarback811@gmail.com",
+      "total": 25,
+      "proofPath": "/uploads/1760862490445-8676.png",
+      "status": "delivered",
+      "createdAt": "2025-10-19T08:28:10.457Z",
+      "assigned": [
+        {
+          "key": "LIFE-KEY003",
+          "productName": "Seraphin Lifetime"
+        }
+      ],
+      "deliveredAt": "2025-10-19T08:41:41.182Z"
+    }
+  },
+  "canceled": [
+    {
+      "orderId": "ORD-1760863326604-348",
+      "productId": "key_lifetime",
+      "qty": 1,
+      "name": "213",
+      "email": "nebarback811@gmail.com",
+      "total": 25000,
+      "proofPath": "/uploads/1760863326599-3067.png",
+      "status": "canceled",
+      "createdAt": "2025-10-19T08:42:06.605Z",
+      "canceledAt": "2025-10-19T08:45:35.557Z"
+    }
+  ]
+}

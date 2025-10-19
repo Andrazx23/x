@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Seraphin Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>🔑 Admin Panel - Seraphin Shop</h1>
+
+  <div class="login-box" id="loginBox">
+    <h3>Login Admin</h3>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <div id="loginMsg"></div>
+  </div>
+
+  <div id="dashboard" style="display:none;">
+    <h3>Daftar Order Pending</h3>
+    <div id="pendingList"></div>
+    <hr>
+    <h3>Stok Key</h3>
+    <div id="keyList"></div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
