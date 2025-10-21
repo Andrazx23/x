@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background: rgb(20,20,20);
+  color: #eee;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #9ad0ff;
+}
+
+.login-box {
+  max-width: 360px;
+  background: #111;
+  padding: 20px;
+  margin: 40px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+.login-box input {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: #eee;
+}
+
+button {
+  background: #0b74ff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #095fd1;
+}
+
+#pendingList div, #keyList div {
+  background: #111;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}

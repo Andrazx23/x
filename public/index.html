@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seraphin Shop - Beli License Key</title>
+  <meta name="description" content="Shop tercepat dan teraman untuk membeli license key. Lifetime license dengan instant delivery." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: rgb(20, 20, 20);
+      --card: rgb(15, 15, 18);
+      --foreground: rgb(234, 240, 248);
+      --muted: rgb(191, 201, 211);
+      --primary: rgb(58, 160, 255);
+      --primary-end: rgb(11, 116, 255);
+      --border: rgb(35, 36, 38);
+      --input-bg: rgb(11, 11, 11);
+      --success: rgb(34, 197, 94);
+      --warning: rgb(255, 209, 102);
+      --error: rgb(239, 68, 68);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--foreground);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .logo-box {
+      width: 3.5rem;
+      height: 3.5rem;
+      background: var(--card);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border);
+    }
+
+    .brand-text {
+      text-align: left;
+    }
+
+    .brand-text h1 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+
+    .brand-text .tagline {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .header-desc {
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+
+    .header-desc span {
+      color: var(--foreground);
+      font-weight: 600;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .product-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      backdrop-filter: blur(10px);
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      animation: slideUp 0.4s ease-out;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(58, 160, 255, 0.15);
+      border-color: rgba(58, 160, 255, 0.3);
+    }
+
+    .product-thumb {
+      height: 7rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 16px rgba(58, 160, 255, 0.2);
+    }
+
+    .product-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--foreground);
+    }
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .stock-available {
+      color: var(--success);
+    }
+
+    .stock-empty {
+      color: var(--error);
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      color: var(--foreground);
+    }
+
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 0.625rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      color: white;
+      box-shadow: 0 6px 18px rgba(58, 160, 255, 0.3);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(58, 160, 255, 0.4);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      z-index: 1000;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: linear-gradient(180deg, rgb(15, 17, 19), rgb(11, 12, 13));
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 28rem;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.8);
+      animation: slideUp 0.3s ease-out;
+    }
+
+    .modal-header {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--foreground);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--foreground);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.625rem;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      color: var(--foreground);
+      font-size: 0.875rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* Radio Group */
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+
+    .radio-label input[type="radio"] {
+      cursor: pointer;
+    }
+
+    /* Payment Info Box */
+    .payment-info {
+      background: rgba(58, 160, 255, 0.1);
+      border: 1px solid rgba(58, 160, 255, 0.2);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .payment-info p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .payment-info strong {
+      font-size: 1.125rem;
+      color: var(--foreground);
+    }
+
+    .qris-box {
+      width: 10rem;
+      height: 10rem;
+      background: linear-gradient(135deg, rgba(58, 160, 255, 0.2), rgba(11, 116, 255, 0.1));
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0;
+      color: var(--muted);
+      font-size: 2rem;
+    }
+
+    .timer-display {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .timer-display .time {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .time-normal {
+      color: var(--foreground);
+    }
+
+    .time-warning {
+      color: var(--warning);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .message {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .message-error {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .message-success {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-content {
+        max-width: 100%;
+      }
+
+      .brand {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .brand-text {
+        text-align: center;
+      }
+    }
+
+    /* Icons SVG */
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .icon-lg {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-box">
+          <svg class="icon-lg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 3.5a6 6 0 1 1-4.243 10.243L3 17v3h3l3-3 1.757 1.757A6 6 0 0 1 10.5 3.5z" fill="#ffd166"/>
+            <circle cx="9" cy="9" r="2" fill="#ffefc2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Seraphin Shop</h1>
+          <p class="tagline">Lifetime license — instant delivery</p>
+        </div>
+      </div>
+      <p class="header-desc">
+        Shop tercepat dan teraman <span>Hanya di Seraphin Shop</span>
+      </p>
+    </header>
+
+    <!-- Products Grid -->
+    <div id="productsGrid" class="products-grid"></div>
+  </div>
+
+  <!-- Purchase Modal -->
+  <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitle" class="modal-header">Beli Produk</h2>
+      
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input type="email" id="email" class="form-input" placeholder="email@example.com">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="name">Nama (opsional)</label>
+        <input type="text" id="name" class="form-input" placeholder="Nama Anda">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="quantity">Jumlah</label>
+        <input type="number" id="quantity" class="form-input" value="1" min="1">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Metode Pembayaran</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="payment" value="DANA" checked onchange="handlePaymentChange(event)">
+            <span>DANA</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="payment" value="QRIS" onchange="handlePaymentChange(event)">
+            <span>QRIS</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- DANA Payment Info -->
+      <div id="danaInfo" class="payment-info">
+        <p>Transfer ke DANA:</p>
+        <strong>085260047474</strong>
+      </div>
+
+      <!-- QRIS Payment Info -->
+      <div id="qrisInfo" class="payment-info" style="display: none;">
+        <p>Scan QRIS berikut untuk membayar:</p>
+        <div class="qris-box">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </div>
+        <div class="timer-display">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span style="font-size: 0.875rem; color: var(--muted)">Sisa waktu:</span>
+          <span id="qrisTimer" class="time time-normal">03:00</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="proofFile">Upload Bukti Pembayaran</label>
+        <input type="file" id="proofFile" class="form-input" accept="image/*">
+      </div>
+
+      <div class="modal-actions">
+        <button id="submitBtn" class="btn btn-primary" onclick="handleSubmit()">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Kirim & Buat Order
+        </button>
+        <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+      </div>
+
+      <div id="messageBox"></div>
+    </div>
+  </div>
+
+  <script>
+    let currentProduct = null;
+    let qrisInterval = null;
+    let qrisRemaining = 180;
+
+    // Format Rupiah
+    function formatRupiah(amount) {
+      return new Intl.NumberFormat('id-ID').format(amount);
+    }
+
+    // Format Timer
+    function formatTime(seconds) {
+      const mm = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const ss = String(seconds % 60).padStart(2, '0');
+      return `${mm}:${ss}`;
+    }
+
+    // Load Products
+    async function loadProducts() {
+      try {
+        const response = await fetch('/api/products');
+        const data = await response.json();
+        displayProducts(data.products || []);
+      } catch (error) {
+        console.error('Failed to load products:', error);
+        // Mock data for development
+        displayProducts([
+          { id: '1', name: 'Seraphin Lifetime', price: 50000, stock: 10 },
+          { id: '3', name: 'Ultimate License', price: 100000, stock: 8 },
+        ]);
+      }
+    }
+
+    // Display Products
+    function displayProducts(products) {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = '';
+
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        
+        card.innerHTML = `
+          <div class="product-thumb">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.5 3.5a6 6 0 1 1-4.243 10.243L3 17v3h3l3-3 1.757 1.757A6 6 0 0 1 10.5 3.5z" fill="white" opacity="0.9"/>
+              <circle cx="9" cy="9" r="2" fill="white" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3>${product.name}</h3>
+          <div class="product-info">
+            <span>Stok</span>
+            <span class="${product.stock > 0 ? 'stock-available' : 'stock-empty'}">
+              ${product.stock > 0 ? product.stock + ' tersedia' : 'Habis'}
+            </span>
+          </div>
+          <div class="product-price">Rp${formatRupiah(product.price)}</div>
+          <button 
+            class="btn btn-primary" 
+            ${product.stock <= 0 ? 'disabled' : ''} 
+            onclick="openPurchaseModal('${product.id}', '${product.name}')">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            ${product.stock > 0 ? 'Beli Sekarang' : 'Stok Habis'}
+          </button>
+        `;
+        
+        grid.appendChild(card);
+      });
+    }
+
+    // Open Purchase Modal
+    function openPurchaseModal(productId, productName) {
+      currentProduct = productId;
+      document.getElementById('modalTitle').textContent = `Beli - ${productName}`;
+      document.getElementById('purchaseModal').classList.add('show');
+      document.getElementById('messageBox').innerHTML = '';
+      
+      // Reset form
+      document.getElementById('email').value = '';
+      document.getElementById('name').value = '';
+      document.getElementById('quantity').value = '1';
+      document.getElementById('proofFile').value = '';
+      
+      // Reset payment to DANA
+      document.querySelector('input[name="payment"][value="DANA"]').checked = true;
+      handlePaymentChange({ target: { value: 'DANA' } });
+    }
+
+    // Close Modal
+    function closeModal() {
+      document.getElementById('purchaseModal').classList.remove('show');
+      stopQrisTimer();
+    }
+
+    // Handle Payment Method Change
+    function handlePaymentChange(event) {
+      const method = event.target.value;
+      const danaInfo = document.getElementById('danaInfo');
+      const qrisInfo = document.getElementById('qrisInfo');
+
+      if (method === 'QRIS') {
+        danaInfo.style.display = 'none';
+        qrisInfo.style.display = 'block';
+        startQrisTimer();
+      } else {
+        danaInfo.style.display = 'block';
+        qrisInfo.style.display = 'none';
+        stopQrisTimer();
+      }
+    }
+
+    // Start QRIS Timer
+    function startQrisTimer() {
+      stopQrisTimer();
+      qrisRemaining = 180;
+      updateTimerDisplay();
+      
+      qrisInterval = setInterval(() => {
+        qrisRemaining--;
+        updateTimerDisplay();
+        
+        if (qrisRemaining <= 0) {
+          stopQrisTimer();
+          showMessage('Waktu QRIS habis. Pilih ulang QRIS atau gunakan DANA.', 'error');
+          document.getElementById('submitBtn').disabled = true;
+        }
+      }, 1000);
+    }
+
+    // Stop QRIS Timer
+    function stopQrisTimer() {
+      if (qrisInterval) {
+        clearInterval(qrisInterval);
+        qrisInterval = null;
+      }
+      qrisRemaining = 180;
+      updateTimerDisplay();
+      document.getElementById('submitBtn').disabled = false;
+    }
+
+    // Update Timer Display
+    function updateTimerDisplay() {
+      const timerEl = document.getElementById('qrisTimer');
+      timerEl.textContent = formatTime(qrisRemaining);
+      timerEl.className = 'time ' + (qrisRemaining < 60 ? 'time-warning' : 'time-normal');
+    }
+
+    // Show Message
+    function showMessage(message, type) {
+      const messageBox = document.getElementById('messageBox');
+      messageBox.innerHTML = `<div class="message message-${type}">${message}</div>`;
+    }
+
+    // Handle Submit
+    async function handleSubmit() {
+      const email = document.getElementById('email').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const quantity = document.getElementById('quantity').value;
+      const proofFile = document.getElementById('proofFile').files[0];
+      const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+      if (!email || !proofFile) {
+        showMessage('Harap isi email dan upload bukti pembayaran', 'error');
+        return;
+      }
+
+      if (paymentMethod === 'QRIS' && qrisRemaining === 0) {
+        showMessage('Waktu QRIS telah habis', 'error');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('productId', currentProduct);
+      formData.append('qty', quantity);
+      formData.append('email', email);
+      formData.append('name', name);
+      formData.append('paymentMethod', paymentMethod);
+      formData.append('proof', proofFile);
+
+      try {
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').textContent = 'Mengirim...';
+
+        const response = await fetch('/api/buy', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.ok) {
+          showMessage(`Order berhasil dibuat! Order ID: ${data.orderId}`, 'success');
+          setTimeout(() => {
+            closeModal();
+            loadProducts();
+          }, 1500);
+        } else {
+          showMessage(data.message || 'Gagal membuat order', 'error');
+          document.getElementById('submitBtn').disabled = false;
+          document.getElementById('submitBtn').innerHTML = `
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Kirim & Buat Order
+          `;
+        }
+      } catch (error) {
+        showMessage('Gagal koneksi ke server', 'error');
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('submitBtn').innerHTML = `
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Kirim & Buat Order
+        `;
+      }
+    }
+
+    // Initialize
+    loadProducts();
+
+    // Close modal when clicking outside
+    document.getElementById('purchaseModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
