@@ -1,0 +1,8 @@
+{
+  "key_lifetime": {
+    "id": "key_lifetime",
+    "name": "Seraphin Lifetime",
+    "price": 25000,
+    "keys": ["KEY001"]
+  }
+}
